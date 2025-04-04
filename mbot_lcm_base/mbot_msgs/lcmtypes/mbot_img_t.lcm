@@ -1,0 +1,8 @@
+package mbot_lcm_msgs;
+
+struct mbot_img_t
+{
+    int64_t utime;
+    string img_name;
+    byte img_data[2764800];
+}
