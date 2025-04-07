@@ -4,5 +4,6 @@ struct mbot_img_t
 {
     int64_t utime;
     string img_name;
-    byte img_data[2764800];
+    int32_t data_size;  // Added field for variable-length array
+    byte img_data[data_size];  // Changed to variable-length array
 }
