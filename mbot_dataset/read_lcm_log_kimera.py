@@ -6,6 +6,7 @@ Latest update date: 04/06/2025
 
 import sys
 import os
+import shutil
 import lcm
 import argparse
 import cv2
@@ -40,6 +41,12 @@ def createDataFolder(args):
         with open(cam0_data_file, 'w') as file:
                 file.write("#timestamp [ns],filename\n")
 
+        # Copy cam0 sensor.yaml to dataset
+        src_file = "/home/mbot/mbot_ws/mbot_dataset/dataset/cam/sensor.yaml"
+        cam_sensor_file = os.path.join(cam0_folder, os.path.basename(src_file))
+        shutil.copy(src_file, cam_sensor_file)
+        print(f"sensor.yaml copied to {cam0_folder}")
+
         # Create the "imu0" folder and its subfolders
         imu0_folder = os.path.join(mav0_folder, "imu0")
         os.makedirs(imu0_folder)
@@ -48,6 +55,13 @@ def createDataFolder(args):
         imu0_data_file = os.path.join(imu0_folder, "data.csv")
         with open(imu0_data_file, 'w') as file:
             file.write("#timestamp [ns],w_RS_S_x [rad s^-1],w_RS_S_y [rad s^-1],w_RS_S_z [rad s^-1],a_RS_S_x [m s^-2],a_RS_S_y [m s^-2],a_RS_S_z [m s^-2]\n")
+    
+        # Copy imu0 sensor.yaml to dataset
+        src_file = "/home/mbot/mbot_ws/mbot_dataset/dataset/imu/sensor.yaml"
+        imu_sensor_file = os.path.join(imu0_folder, os.path.basename(src_file))
+        shutil.copy(src_file, imu_sensor_file)
+        print(f"sensor.yaml copied to {imu0_folder}")
+    
     else:
         print("Folder exists!\n")
 
