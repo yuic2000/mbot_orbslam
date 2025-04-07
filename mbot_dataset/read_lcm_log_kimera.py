@@ -37,7 +37,7 @@ def createDataFolder(args):
         os.makedirs(cam0_data_folder)
         print(f"Folder 'cam0/data' created.")
 
-        cam0_data_file = os.path.join(cam0_data_folder, "data.csv")
+        cam0_data_file = os.path.join(cam0_folder, "data.csv")
         with open(cam0_data_file, 'w') as file:
                 file.write("#timestamp [ns],filename\n")
 
