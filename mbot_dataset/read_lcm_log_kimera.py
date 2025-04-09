@@ -96,8 +96,8 @@ def main():
         if event.channel == "MBOT_IMG_CHANNEL":
             # Decode the data from the event
             msg = mbot_img_t.decode(event.data)
-            utime = msg.utime
-            img_name = msg.img_name
+            ntime = msg.utime*1000
+            img_name = f"{ntime}.png"
 
             # For PNG compressed data - no need to reshape, just decode the PNG
             img_data = np.frombuffer(msg.img_data[:msg.data_size], dtype=np.uint8)
@@ -116,19 +116,19 @@ def main():
 
             # Write each timestamp and filename pair in the specified format
             with open(cam0_data_file, 'a') as file:
-                file.write(f"{utime},{output_img_name}\n")
+                file.write(f"{ntime},{output_img_name}\n")
                 print("Image saved\n")
 
         ## -------------  Save IMU Data  ------------ ##
         if event.channel == "MBOT_IMU":   
             # Decode the data from the event
             msg = mbot_imu_t.decode(event.data)
-            utime = msg.utime
+            ntime = msg.utime*1000
             gyro = msg.gyro
             accel = msg.accel
 
             with open(imu0_data_file, 'a') as file:
-                file.write(f"{utime},{gyro[0]},{gyro[1]},{gyro[2]},{accel[0]},{accel[1]},{accel[2]}\n")
+                file.write(f"{ntime},{gyro[0]},{gyro[1]},{gyro[2]},{accel[0]},{accel[1]},{accel[2]}\n")
                 print("Imu data saved\n") 
 
 if __name__ == "__main__":
