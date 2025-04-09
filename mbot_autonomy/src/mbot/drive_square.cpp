@@ -12,7 +12,7 @@ using namespace mbot_lcm_msgs;
 
 int main(int argc, char** argv)
 {
-    int numTimes = 4;
+    int numTimes = 2;
 
     if(argc > 1)
     {
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 
     pose2D_t nextPose;
 
-    nextPose.x = 1.0f;
+    nextPose.x = 0.5f;
     nextPose.y = 0.0f;
     nextPose.theta = 0.0f;
     for(int n = 0; n < numTimes; ++n)
@@ -34,8 +34,8 @@ int main(int argc, char** argv)
         path.path[4*n] = nextPose;
     }
 
-    nextPose.x = 1.0f;
-    nextPose.y = 1.0f;
+    nextPose.x = 0.5f;
+    nextPose.y = 0.5f;
     nextPose.theta = 0.0f;
     for(int n = 0; n < numTimes; ++n)
     {
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
     }
 
     nextPose.x = 0.0f;
-    nextPose.y = 1.0f;
+    nextPose.y = 0.5f;
     nextPose.theta = 0.0f;
     for(int n = 0; n < numTimes; ++n)
     {
