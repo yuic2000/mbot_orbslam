@@ -7,13 +7,13 @@ comment: VI-Sensor cam0 (ArduCam 5MP B0033)
 T_BS:
   cols: 4
   rows: 4
-  data: [1.0,  0.0, 0.0, -0.0176,
-         0.0,  0.0, 1.0,  0.147,
-         0.0, -1.0, 0.0, 0.0289,
+  data: [0.0, -1.0, 0.0, 0.0289,
+         1.0, 0.0, 0.0, -0.0176,
+         0.0, 0.0, 1.0, 0.147,
          0.0,  0.0, 0.0, 1.0]
 
 # Camera specific definitions.
-rate_hz: 20
+rate_hz: 10
 resolution: [1280, 720]
 camera_model: pinhole
 intrinsics: [1477.5118, 1469.2438, 683.7528, 374.9554] #fu, fv, cu, cv
