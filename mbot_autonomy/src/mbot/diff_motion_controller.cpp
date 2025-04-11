@@ -206,9 +206,9 @@ public:
 	    timesync_initialized_ = false;
 
         // Default velocity limits
-        vel_limits_.vx = 0.3;
+        vel_limits_.vx = 0.1;
         vel_limits_.vy = 0;
-        vel_limits_.wz = M_PI * 2.0 / 3.0;
+        vel_limits_.wz = M_PI * 1.0 / 10.0;
         // vel_limits_.vx = 0.8;
         // vel_limits_.vy = 0;
         // vel_limits_.wz = M_PI;

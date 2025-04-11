@@ -59,8 +59,8 @@ int main(int argc, char** argv)
     }
 
     // Return to original heading after completing all circuits
-//    nextPose.theta = 0.0f;
-//    path.path.push_back(nextPose);
+    // nextPose.theta = 0.0f;
+    // path.path.push_back(nextPose);
 
     nextPose.x = 0.0f;
     nextPose.y = 0.0f;
@@ -71,9 +71,9 @@ int main(int argc, char** argv)
 
     // Set the maximum velocities
     twist2D_t maxVel;
-    maxVel.vx = 0.3;
+    maxVel.vx = 0.1;
     maxVel.vy = 0;
-    maxVel.wz = M_PI * 2.0 / 3.0;
+    maxVel.wz = M_PI * 1.0 / 10.0;
 
     // Publish
     lcm::LCM lcmInstance(MULTICAST_URL);
