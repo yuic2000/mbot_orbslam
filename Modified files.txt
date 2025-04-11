@@ -1,0 +1,10 @@
+# Modified files
+
+## BackendParams.yaml: 
+autoInitialize = 1
+
+## stereoVIOEuroc.bash:
+--log_euroc_gt_data=0
+
+## EurocDataProvider:
+is_gt_available_ = false;
